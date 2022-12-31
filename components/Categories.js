@@ -1,68 +1,64 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, Image, ScrollView } from 'react-native'
+import React from 'react'
 
 export default function Categories() {
-  const [activeCat, setActiveCat] = useState("Pick-up");
-
+  const items = [
+    {
+      image: require('../assets/images/shopping-bag.png'),
+      text: "Pick-up"
+    },
+    {
+      image: require('../assets/images/soft-drink.png'),
+      text: "Soft Drinks"
+    },
+    {
+      image: require('../assets/images/bread.png'),
+      text: "Bakery Items"
+    },
+    {
+      image: require('../assets/images/fast-food.png'),
+      text: "Fast Food"
+    },
+    {
+      image: require('../assets/images/deals.png'),
+      text: "Deals"
+    },
+    {
+      image: require('../assets/images/coffee.png'),
+      text: "Coffee & Tea"
+    },
+    {
+      image: require('../assets/images/desserts.png'),
+      text: "Desserts"
+    }
+  ]
+ 
   return (
     <View
       style={{
-        flexDirection: "row",
-        justifyContent: "space-around",
-        marginTop: 10,
-        padding: 10,
-        backgroundColor: "white",
-        alignItems: "center",
+        marginTop: 5,
+        backgroundColor: '#fff',
+        paddingVertical: 10,
+        paddingLeft: 20
       }}
     >
-      <CategoryBtn 
-          text="Pick-up"
-          image="shopping-bag"
-          activeCat={activeCat} 
-          setActiveCat={setActiveCat}
-      />
-      <CategoryBtn 
-          text="Soft Drinks"
-          image="soft-drink"
-          activeCat={activeCat} 
-          setActiveCat={setActiveCat}
-      />
-      <CategoryBtn 
-          text="Bakery Items"
-          image="bread"
-          activeCat={activeCat} 
-          setActiveCat={setActiveCat}
-      />
-      <CategoryBtn 
-          text="Fast Food"
-          image="fast-food"
-          activeCat={activeCat} 
-          setActiveCat={setActiveCat}
-      />
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {items.map((item, index) => (
+          <View key={index} style={{ alignItems: "center", marginRight: 30 }}>
+            <Image 
+              source={ item.image } 
+              style={{
+                height: 40,
+                width: 50,
+                resizeMode: 'contain'
+              }}
+            />
+            <Text style={{ fontSize: 13, fontWeight: "900" }}>
+              { item.text } 
+            </Text>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   )
 }
-
-const CategoryBtn = (props) => (
-    <TouchableOpacity 
-      style={{
-        backgroundColor: props.activeCat === props.text ? "#ecdede" : "white",
-        borderRadius: 16,
-        padding: "8px",
-        flexDirection: "column-reverse",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-      onPress={() => props.setActiveCat(props.text)}
-    >
-        <Text style={{ fontWeight: "700" }}>{ props.text }</Text>
-        <Image style={{ width: 40, height: 40  }} source={ require('../assets/images/shopping-bag.png') } />
-    </TouchableOpacity>
-)
-
-const styles = StyleSheet.create({
-  categoryItems: {
-    flexDirection: "column-reverse",
-    alignItems: "center"
-  }
-})

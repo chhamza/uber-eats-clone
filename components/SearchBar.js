@@ -49,7 +49,8 @@ export default function SearchBar() {
                     backgroundColor: "#eee",
                     borderRadius: 20,
                     fontWeight: "700",
-                    marginTop: 7
+                    marginTop: 7,
+                    marginRight: 8
                 }
             }}
 
