@@ -17,25 +17,25 @@ export default function Categories() {
     >
       <CategoryBtn 
           text="Pick-up"
-          image="shopping-bag"
+          image="shopping-bag.png"
           activeCat={activeCat} 
           setActiveCat={setActiveCat}
       />
       <CategoryBtn 
           text="Soft Drinks"
-          image="soft-drink"
+          image="soft-drink.png"
           activeCat={activeCat} 
           setActiveCat={setActiveCat}
       />
       <CategoryBtn 
           text="Bakery Items"
-          image="bread"
+          image="bread.png"
           activeCat={activeCat} 
           setActiveCat={setActiveCat}
       />
       <CategoryBtn 
           text="Fast Food"
-          image="fast-food"
+          image="fast-food.png"
           activeCat={activeCat} 
           setActiveCat={setActiveCat}
       />
@@ -56,7 +56,7 @@ const CategoryBtn = (props) => (
       onPress={() => props.setActiveCat(props.text)}
     >
         <Text style={{ fontWeight: "700" }}>{ props.text }</Text>
-        <Image style={{ width: 40, height: 40  }} source={require(`../assets/images/${ props.image }.png`)} />
+        <Image style={{ width: 40, height: 40  }} source={{ uri: `asset:/${ props.image }` }} />
     </TouchableOpacity>
 )
 
