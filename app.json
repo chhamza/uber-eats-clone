@@ -18,6 +18,12 @@
     },
     "ios": {
       "bundleIdentifier": "com.chhamza1.blank"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/0bebe28b-ab5e-440c-824f-596ad6539757"
     }
   }
 }
