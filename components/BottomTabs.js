@@ -2,7 +2,6 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import FontAwesome5  from "react-native-vector-icons/FontAwesome5";
 
-const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
   return (
